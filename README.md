@@ -12,7 +12,7 @@ A small Django project built to demonstrate every topic in the assignment brief:
 - Comments in templates (`{# ... #}`)
 
 No database is used — all news data lives in a Python list of dictionaries
-in `news/data.py`, as allowed by the assignment ("Database is Optional").
+in `news/data.py`
 
 ## Pages
 
@@ -54,7 +54,7 @@ news_portal/
 
 ## How to run it
 
-1. Install Django (any recent 4.x/5.x version):
+1. Install Django :
    ```
    pip install django
    ```
