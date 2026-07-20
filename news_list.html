@@ -1,0 +1,25 @@
+{% extends "news/base.html" %}
+
+{% block content %}
+    <h1>{{ page_title }}</h1>
+
+    {% if news_items %}
+        {# {% for %} loop displaying every article passed from the view #}
+        <ul class="news-list">
+            {% for item in news_items %}
+                <li class="news-list-item">
+                    <h3><a href="{% url 'news:news_detail' item.id %}">{{ item.title }}</a></h3>
+                    <p>{{ item.summary }}</p>
+                    <p class="meta">
+                        {{ item.category }} &middot;
+                        By {{ item.author }} &middot;
+                        {{ item.date }}
+                    </p>
+                </li>
+                {% if not forloop.last %}<hr>{% endif %}
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>There are no news articles yet. Check back soon!</p>
+    {% endif %}
+{% endblock %}

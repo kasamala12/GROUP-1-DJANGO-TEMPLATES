@@ -1,0 +1,27 @@
+{% extends "news/base.html" %}
+
+{% block content %}
+    {# {{ page_title }} is a variable passed from the home() view #}
+    <h1>{{ page_title }}</h1>
+    <p class="tagline">Your source for the latest happenings on campus.</p>
+
+    <h2>Latest News</h2>
+
+    {% if latest_news %}
+        <div class="news-grid">
+            {% for item in latest_news %}
+                <article class="news-card">
+                    <span class="category">{{ item.category }}</span>
+                    <h3><a href="{% url 'news:news_detail' item.id %}">{{ item.title }}</a></h3>
+                    <p>{{ item.summary }}</p>
+                    <p class="meta">By {{ item.author }} &middot; {{ item.date }}</p>
+                </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        {# Shown only if the latest_news list passed from the view is empty #}
+        <p>No news articles available right now.</p>
+    {% endif %}
+
+    <p><a href="{% url 'news:news_list' %}">See all news &rarr;</a></p>
+{% endblock %}

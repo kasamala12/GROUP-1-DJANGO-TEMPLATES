@@ -1,0 +1,20 @@
+{% extends "news/base.html" %}
+
+{% block content %}
+    <h1>{{ page_title }}</h1>
+
+    {# Simple variable display — no loop needed here #}
+    <p>
+        Ardhi University was founded in {{ founded_year }} and has
+        grown into one of the region's leading centers for teaching,
+        research, and community service.
+    </p>
+    <p>Our motto: <em>&ldquo;{{ motto }}&rdquo;</em></p>
+
+    <p>
+        This page, along with the rest of the site, is rendered dynamically
+        using Django Templates — the data you see above (the founding year
+        and motto) is passed to this template from the <code>about()</code>
+        view rather than being hard-coded in HTML.
+    </p>
+{% endblock %}

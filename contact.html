@@ -1,0 +1,11 @@
+{% extends "news/base.html" %}
+
+{% block content %}
+    <h1>{{ page_title }}</h1>
+
+    <ul class="contact-list">
+        <li><strong>Email:</strong> {{ email }}</li>
+        <li><strong>Phone:</strong> {{ phone }}</li>
+        <li><strong>Address:</strong> {{ address }}</li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {# Use the page_title variable passed from the view, falling back to a default #}
+    <title>{% block title %}{{ page_title|default:"University News Portal" }}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'news/css/style.css' %}">
+</head>
+<body>
+
+    {# --- Navigation menu, pulled in from a separate include file --- #}
+    {% include "news/includes/navbar.html" %}
+
+    <main class="container">
+        {% block content %}
+        {# Each child template overrides this block with its own content #}
+        {% endblock %}
+    </main>
+
+    {% include "news/includes/footer.html" %}
+
+</body>
+</html>

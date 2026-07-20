@@ -1,0 +1,14 @@
+{% extends "news/base.html" %}
+
+{% block content %}
+    {# The 'article' dictionary is passed in from the news_detail() view #}
+    <article class="news-detail">
+        <span class="category">{{ article.category }}</span>
+        <h1>{{ article.title }}</h1>
+        <p class="meta">By {{ article.author }} &middot; {{ article.date }}</p>
+
+        <p>{{ article.content }}</p>
+    </article>
+
+    <p><a href="{% url 'news:news_list' %}">&larr; Back to all news</a></p>
+{% endblock %}
