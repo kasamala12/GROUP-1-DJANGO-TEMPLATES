@@ -64,25 +64,3 @@ news_portal/
    ```
 3. Open http://127.0.0.1:8000/ in your browser.
 
-No migrations are required to browse the site (no models/database are
-used), but `python manage.py migrate` will still work fine if you want
-the default admin tables set up.
-
-## What to point out during the presentation
-
-- **How Django locates templates**: `APP_DIRS: True` in `settings.py`
-  makes Django search every installed app's `templates/` folder;
-  `news/templates/news/...` is why templates are namespaced under `news/`.
-- **How templates are rendered**: every function in `views.py` ends with
-  `return render(request, "news/<template>.html", context)`.
-- **How context data reaches templates**: the `context = {...}` dictionary
-  built in each view becomes the `{{ variable }}` names available in
-  that template (e.g. `latest_news`, `article`, `page_title`).
-- **Live modification**: with `DEBUG = True` and the dev server running,
-  edit any `.html` file and refresh the browser to see the change
-  instantly — a good live demo of template rendering.
-- **Common mistakes to show/discuss**: forgetting `{% load static %}`
-  before using `{% static %}`, mismatched `{% endif %}` / `{% endfor %}`
-  tags, referencing a context variable name that doesn't match the key
-  used in the view, and forgetting to register a template's app in
-  `INSTALLED_APPS`.
